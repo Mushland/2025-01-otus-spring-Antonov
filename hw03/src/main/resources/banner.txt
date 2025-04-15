@@ -1,0 +1,13 @@
+${AnsiColor.0}
+${AnsiBackground.237}                               ###                                                                    ##       ##                                           ##                         ##                                          ${AnsiBackground.DEFAULT}
+${AnsiBackground.239}                                ##                                                                    ##                                                    ##                         ##                                          ${AnsiBackground.DEFAULT}
+${AnsiBackground.241} ######    ####    #####        ##    ####    ##  ##             ######  ##  ##    ####     #####    #####    ###      ####    #####     #####             #####    ####     #####    #####             ####    ######   ######    ${AnsiBackground.DEFAULT}
+${AnsiBackground.243} ##  ##      ##   ##  ##    #####   ##  ##   #######           ##  ##   ##  ##   ##  ##   ##         ##       ##     ##  ##   ##  ##   ##                  ##     ##  ##   ##         ##                  ##    ##  ##   ##  ##   ${AnsiBackground.DEFAULT}
+${AnsiBackground.245} ##       #####   ##  ##   ##  ##   ##  ##   ## # ##           ##  ##   ##  ##   ######    #####     ##       ##     ##  ##   ##  ##    #####              ##     ######    #####     ##               #####    ##  ##   ##  ##   ${AnsiBackground.DEFAULT}
+${AnsiBackground.247} ##      ##  ##   ##  ##   ##  ##   ##  ##   ##   ##            #####   ##  ##   ##            ##    ## ##    ##     ##  ##   ##  ##        ##             ## ##  ##            ##    ## ##           ##  ##    #####    #####    ${AnsiBackground.DEFAULT}
+${AnsiBackground.249} ####      #####   ##  ##    ######   ####    ##   ##               ##    ######   #####   ######      ###    ####     ####    ##  ##   ######               ###    #####   ######      ###             #####    ##       ##      ${AnsiBackground.DEFAULT}
+${AnsiColor.DEFAULT}                                                                    ####                                                                                                                                         ####     ####           ${AnsiBackground.DEFAULT}
+
+Крутое приложение для тестов со случаныйми вопросами!
+
+Powered by Spring Boot ${spring-boot.version}
