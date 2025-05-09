@@ -31,15 +31,11 @@ public class JdbcAuthorRepository implements AuthorRepository {
     @Override
     public Optional<Author> findById(long id) {
         Map<String, Object> params = Collections.singletonMap("id", id);
-        Author author;
-        try {
-            author = namedParameterJdbcOperations
-                    .queryForObject("select id, full_name from authors where id = :id",
+        List<Author> authors = namedParameterJdbcOperations
+                    .query("select id, full_name from authors where id = :id",
                             params, new AuthorRowMapper());
-            return Optional.ofNullable(author);
-        } catch (EmptyResultDataAccessException e) {
-            return Optional.empty();
-        }
+            return authors.stream().findFirst();
+
     }
 
     private static class AuthorRowMapper implements RowMapper<Author> {

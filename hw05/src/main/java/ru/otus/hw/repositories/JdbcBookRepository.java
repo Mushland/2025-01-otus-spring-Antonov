@@ -30,19 +30,13 @@ public class JdbcBookRepository implements BookRepository {
     @Override
     public Optional<Book> findById(long id) {
         Map<String, Object> params = Collections.singletonMap("id", id);
-        Book book;
-        try {
-            book = namedParameterJdbcOperations
-                    .queryForObject("SELECT books.id, books.title, books.author_id, books.genre_id," +
+        List<Book> books = namedParameterJdbcOperations
+                    .query("SELECT books.id, books.title, books.author_id, books.genre_id," +
                                     " authors.full_name, genres.name  FROM BOOKS " +
                                     " left join authors on authors.id = books.author_id " +
                                     " left join genres on genres.id = books.genre_id where books.id = :id",
-                            params,
-                            new BookRowMapper());
-            return Optional.ofNullable(book);
-        } catch (EmptyResultDataAccessException e) {
-            return Optional.empty();
-        }
+                            params, new BookRowMapper());
+         return books.stream().findFirst();
     }
 
     @Override
@@ -76,8 +70,10 @@ public class JdbcBookRepository implements BookRepository {
         params.addValue("genre_id", book.getGenre().getId());
         namedParameterJdbcOperations.update("insert into books (title, author_id, genre_id) " +
                 "values (:title, :author_id, :genre_id)", params, keyHolder);
-        if (keyHolder.getKeyAs(Long.class) != null) {
-            book.setId(keyHolder.getKeyAs(Long.class));
+
+        Long newId = keyHolder.getKeyAs(Long.class);
+        if (newId != null) {
+            book.setId(newId);
         }
         return book;
     }
